@@ -1,0 +1,48 @@
+<div class="container">
+	<% if flash[:notice] %>
+		<div style="color: limegreen;">
+			<%= flash[:notice] %>
+		</div>
+	<% end %>
+	<% if @user.errors.any? %>
+		<div style="color: red;">
+			<h3><%= @user.errors.count %> error prohibited this obj from being saved:</h3>
+			<ul>
+				<% @user.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div class="row">
+		<div class="col-md-3">
+			<%= render 'users/profile', user: @user, book: @book_new %>
+		</div>
+		<div class="col-md-9">
+			<div>
+				<h3>Books</h3>
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>&nbsp;</th>
+						<th>Title</th>
+						<th>Opinion</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @user.books.each do |book| %>
+					<tr>
+						<td><%= attachment_image_tag book.user, :profile_image, fallback: "no_image.jpg",size:(5*5) %></td>
+						<td>
+							<%= link_to book_path(book.id) do %>
+								<%= book.title %></td>
+							<% end %>
+						<td><%= book.body %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

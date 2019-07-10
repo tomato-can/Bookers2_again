@@ -1,0 +1,38 @@
+	<div>
+		<div>
+			<h3>User info</h3>
+		</div>
+		<div>
+			<%= attachment_image_tag user, :profile_image,fallback:"no_image.jpg", size:(8*8) %>
+		</div>
+		<table class="table table-condensed">
+				<tr>
+					<th>name</th>
+					<td><%= user.name %></td>
+				</tr>
+				<tr>
+					<th>introduction</th>
+					<td><%= user.introduction %></td>
+				</tr>
+		</table>
+		<% if user == current_user %>
+			<%= link_to edit_user_path(current_user.id), class: "btn btn-default text-center btn-block" do %>
+				<i class="fas fa-wrench"></i>
+			<% end %>
+		<% end %>
+		<div>
+			<div>
+				<h3>New book</h3>
+			</div>
+			<div>
+				<%= form_for(book, url:books_path) do |f| %>
+				<label for="inputTitle">Title</label><br>
+					<%= f.text_field :title, id:"inputTitle", class: "form-control input-sm" %>
+				<label for="inputOpinion">Opinion</label><br>
+				<%= f.text_area :body, id:"inputOpinion", class: "form-control input-sm" %>
+				<br>
+				<%= f.submit "Create Book", class: "btn btn-primary text-center btn-block " %>
+				<% end %>
+			</div>
+		</div>
+	</div>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="container-fluid" style="background-color: black;">
+        <div class="row">
+            <span class="col-md-1 col-md-offset-1" style="color: white; font-size: 15px;">Bookers</span>
+          <div class="col-md-5 col-md-offset-5">
+            <ul class="nav nav-pills nav-justified text-center">
+              </li>
+              <% if user_signed_in? %>
+                <li style="font-size:10px;">
+                  <%= link_to user_path(current_user.id) do %>
+                  <i class="fas fa-home"></i>
+                  <span>Home</span>
+                  <% end %>
+                </i>
+                <li style="font-size:10px;">
+                  <%= link_to users_path do %>
+                  <i class="fas fa-user"></i>
+                  <span>Users</span>
+                  <% end %>
+                </li>
+                <li style="font-size:10px;">
+                  <%= link_to books_path do %>
+                  <i class="fas fa-book"></i>
+                  <span>Books</span>
+                  <% end %>
+                </li>
+                <li style="font-size:10px;">
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fas fa-sign-out-alt"></i>
+                  <span>Log out</span>
+                  <% end %>
+                </li>
+                <% else %>
+                <li style="font-size:10px;">
+                  <%= link_to root_path do %>
+                  <i class="fas fa-home"></i>
+                  <span>Home</span>
+                  <% end %>
+                </i>
+                <li style="font-size:10px;">
+                  <%= link_to home_about_path do %>
+                  <i class="fas fa-link"></i>
+                  <span>About</span>
+                  <% end %>
+                </li>
+                <li style="font-size:10px;">
+                  <%= link_to new_user_registration_path do %>
+                  <i class="fas fa-edit"></i>
+                  <span>Sign Up</span>
+                  <% end %>
+                </li>
+                <li style="font-size:10px;">
+                  <%= link_to new_user_session_path do %>
+                  <i class="fas fa-sign-in-alt"></i>
+                  <span>Log in</span>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <%= yield %>
+
+    <footer class="container-fluid">
+      <div class="row">
+        <h4 style="font-size: 10px;" class="col-md-1 col-md-offset-9 text-nowrap">CopyRight Infratop.inc</h4>
+      </div>
+    </footer>
+  </body>
+</html>
