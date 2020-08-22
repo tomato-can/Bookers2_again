@@ -1,14 +1,14 @@
 	<div>
 		<div>
-			<h3>User info</h3>
+			<h2>User info</h2>
 		</div>
 		<div>
-			<%= attachment_image_tag user, :profile_image,fallback:"no_image.jpg", size:(8*8) %>
+			<%= attachment_image_tag user, :profile_image,fallback:"no_image.jpg", size: 100 %>
 		</div>
 		<table class="table table-condensed">
 				<tr>
 					<th>name</th>
-					<td><%= user.name %></td>
+					<td><strong><%= user.name %></strong></td>
 				</tr>
 				<tr>
 					<th>introduction</th>

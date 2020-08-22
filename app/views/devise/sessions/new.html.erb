@@ -2,12 +2,13 @@
   <h2>Log in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div>
+
+    <div class="field">
       <label for="inputName">Name</label><br>
       <%= f.text_field :name, autofocus: true, autocomplete: "on", id:"inputName" %>
     </div>
 
-    <div>
+    <div class="field">
       <label for="inputPassword">Password</label><br>
       <%= f.password_field :password, autocomplete: "off", id:"inputPassword" %>
     </div>
@@ -19,7 +20,7 @@
       </div>
     <% end %>
 
-    <div>
+    <div class="field">
       <%= f.submit "Log in", class: "btn btn-primary text-center" %>
     </div>
   <% end %>

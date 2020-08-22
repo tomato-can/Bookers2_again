@@ -14,11 +14,11 @@
 			<%= render 'users/profile', user: @book.user, book:@book_new %>
 		</div>
 		<div class="col-md-9">
-			<h3>Book detail</h3>
+			<h2>Book detail</h2>
 			<table class="table">
 				<tbody>
 					<tr>
-						<td><%= attachment_image_tag @book.user, :profile_image, fallback: "no_image.jpg",size: (5*5) %><br>
+						<td><%= attachment_image_tag @book.user, :profile_image, fallback: "no_image.jpg",size: 40 %><br>
 							<%= link_to user_path(@book.user.id) do %>
 							<%= @book.user.name %>
 							<% end %>

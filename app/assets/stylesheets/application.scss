@@ -16,6 +16,60 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.clearfix::after {
+	display: block;
+	content: "";
+	clear: both;
+}
+
 a {
 	color: #9d9d9d;
 }
+
+a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+header .container-fluid{
+	padding: 0;
+	background-color: #222222;
+	margin: 0px 0px 20px 0px;
+}
+
+.navbar {
+	margin: 0px 98px;
+	padding: 0px 15px;
+}
+
+.title {
+	padding: 0;
+	color: #fff;
+	font-size: 20px;
+}
+
+.nav-menu {
+	display: flex;
+	justify-content: flex-end;
+	margin: 0;
+}
+
+.nav-menu li {
+	font-size: 13px;
+}
+
+.nav-menu a {
+	display: inline-block;
+	padding: 15px;
+}
+
+.field {
+	margin-bottom: 10px;
+}
+
